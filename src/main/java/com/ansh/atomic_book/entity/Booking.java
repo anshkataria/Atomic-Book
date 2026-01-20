@@ -21,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Booking {
 
-    private enum BookingStatus {
+    public enum BookingStatus {
         CONFIRMED,
         PENDING,
         FAILED,
@@ -59,7 +59,7 @@ public class Booking {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     private List<Ticket> tickets = new ArrayList<>();
 
 
